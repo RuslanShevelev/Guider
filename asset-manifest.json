@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/guider/static/css/main.3a08013e.css",
+    "main.js": "/guider/static/js/main.d63388f6.js",
+    "index.html": "/guider/index.html",
+    "main.3a08013e.css.map": "/guider/static/css/main.3a08013e.css.map",
+    "main.d63388f6.js.map": "/guider/static/js/main.d63388f6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a08013e.css",
+    "static/js/main.d63388f6.js"
+  ]
+}
