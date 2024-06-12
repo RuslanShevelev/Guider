@@ -1,0 +1,66 @@
+.modalBg {
+  position: fixed;
+  inset: 0;
+  width: auto;
+  height: auto;
+  background-color: rgba(43, 64, 116, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+.mainContainer{
+  background-color: white;
+  max-width: 1178px;
+  margin: 0 auto;
+  padding: 30px 30px;
+  border-radius: 10px;
+}
+.modalContent {
+  display: flex;
+flex-direction: column;
+align-items: center;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  &__title {
+    font-size: 24px;
+    line-height: 26px;
+    text-align: left;
+    color: #4a4a4a;
+  }
+  &__text {
+    color: #797979;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: left;
+  }
+}
+.btnClose {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #d9d9d9;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+  &:hover {
+    &::after,
+    &::before {
+      background-color: rgba(43, 64, 116);
+    }
+  }
+}

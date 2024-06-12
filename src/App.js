@@ -1,64 +1,47 @@
 import React from "react";
 import { BlockItem } from "./components/item";
 import styles from "./App.module.scss";
+import { useSelector} from "react-redux";
+import { InfoModal } from "./components/modal/modal";
+import { blockContent } from "./data";
 
 function App() {
-  const blockContent = [
-    {
-      id: 1,
-      svg: "strategy.png",
-      title: "СТРАТЕГИЯ",
-      text: "Думаю у тебя не займет это больше двух-трех минут",
-    },
-    {
-      id: 2,
-      svg: "analytics.png",
-      title: "АНАЛИЗ",
-      text: "Подумай как это будет работать на разных разрешениях и при скролле",
-    },
-    {
-      id: 3,
-      svg: "socialmedia.png",
-      title: "СОЦ СЕТИ",
-      text: "Чтобы мы могли тебе доверить подобные задачи в будущем",
-    },
-    {
-      id: 4,
-      svg: "design.png",
-      title: "РАЗВИТИЕ",
-      text: "Ну тут все просто, не я придумал правила, но думаю так и будет)))",
-    },
-  ];
+  const showModal = useSelector((state) => state.modals.showModal)
+  console.log(showModal);
   return (
     <div className="App">
-      <div className={styles.secondBlock}>
-        <h2 className={styles.secondBlock__title}>Как это работает</h2>
-        <ul className={styles.secondBlock__content}>
-          {blockContent.map((item) => (
-            <BlockItem
-              key={item.id}
-              svg={item.svg}
-              title={item.title}
-              text={item.text}
-            />
-          ))}
-        </ul>
-      </div>
-      <div className={styles.thirdBlock}>
-        <div className={styles.thirdBlock__left}>
-          <div className={styles.thirdBlock__title}>
-            Круто, ты дошел до третьего блока
-          </div>
-          <div className={styles.thirdBlock__text}>
-            63% опрошенных пользовались кредитами из-за того, что не могли
-            покрыть непредвиденные расходы свыше 15 000 ₽.
-            <br />
-            <br />
-            Доступ к заработанным деньгам помогает отказаться от кредитов и
-            экономить деньги на процентах и штрафах.
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <div className={styles.services}>
+            <div className={styles.services__left}>
+              <h2 className={styles.servicesBlock__title}>Сервис</h2>
+              <div className={styles.services__title}>
+                От идеи до незабываемого и измеримого результата.
+              </div>
+              <div className={styles.services__line}></div>
+              <div className={styles.services__text}>
+                Интеграция безупречного производства, передовых технологий и
+                тщательного измерения производительности
+              </div>
+            </div>
+            <div className={styles.services__right}>
+              <div className={styles.servicesBlock}>
+                <ul className={styles.servicesBlock__content}>
+                  {blockContent.map((item) => (
+                    <BlockItem
+                      key={item.id}
+                      id={item.id}
+                      img={item.svg}
+                      title={item.title}
+                      text={item.text}
+                    />
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        <div className={styles.thirdBlock__right}></div>
+        {showModal && <InfoModal/>}
       </div>
     </div>
   );
